@@ -33,31 +33,25 @@
 </section>
 
 <section id="writing">
-  <span class="h1"><a href="<%- url_for(theme.nav.articles) %>"><%= __('index.articles') %></a></span>
+  <span class="h1"><a href="/archives"><%= __('index.articles') %></a></span>
   
-  <!-- Most Recent Blog Section -->
-<span class="h2">
-  <a href="/archives/">
-    <%= __('index.most_recent') %>
-  </a>
-</span>
-<ul class="post-list">
-  <% var field_sort = theme.posts_overview.sort_updated ? 'updated' : 'date' %>
+  <ul class="post-list">
+    <% var field_sort = theme.posts_overview.sort_updated ? 'updated' : 'date' %>
+    <% if (theme.posts_overview.show_all_posts) { %>
+      <% var show_posts = page.posts.sort(field_sort, 'desc') %>
+    <% } else { %>
+      <% var show_posts = site.posts.sort(field_sort, 'desc').limit(theme.posts_overview.post_count || 5) %>
+    <% } %>
+    <% show_posts.each(function(post, i){ %>
+      <li class="post-item">
+        <%- partial('_partial/post/date', { post: post, class_name: 'meta' }) %>
+        <span><%- partial('_partial/post/title', { post: post, index: true, class_name: '' }) %></span>
+      </li>
+    <% }); %>
+  </ul>
   <% if (theme.posts_overview.show_all_posts) { %>
-    <% var show_posts = page.posts.sort(field_sort, 'desc') %>
-  <% } else { %>
-    <% var show_posts = site.posts.sort(field_sort, 'desc').limit(theme.posts_overview.post_count || 5) %>
+    <%- partial('_partial/pagination') %>
   <% } %>
-  <% show_posts.each(function(post, i){ %>
-    <li class="post-item">
-      <%- partial('_partial/post/date', { post: post, class_name: 'meta' }) %>
-      <span><%- partial('_partial/post/title', { post: post, index: true, class_name: '' }) %></span>
-    </li>
-  <% }); %>
-</ul>
-<% if (theme.posts_overview.show_all_posts) { %>
-  <%- partial('_partial/pagination') %>
-<% } %>
 
   <!-- Topics Section -->
   <% if (theme.tags_overview && site.tags.length) { %>
