@@ -1,0 +1,154 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: Prince Rajpoot
+subtitle: ''
+description: 'Hi, I am Prince. <br />'
+keywords:
+author: Prince Rajpoot
+language: en
+timezone: 'Asia/Kolkata'
+
+# URL
+## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
+url: http://princerajpoot.com
+permalink: blog/:title/
+permalink_defaults:
+pretty_urls:
+  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
+  trailing_html: true # Set to false to remove trailing '.html' from permalinks
+
+# all post on home page
+posts_overview:
+  show_all_posts: true
+  post_count: 20
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link:
+  enable: true # Open external links in new tab
+  field: site # Apply to the whole site
+  exclude: ''
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace: ''
+  wrap: true
+  hljs: false
+prismjs:
+  enable: false
+  preprocess: true
+  line_number: true
+  tab_replace: ''
+
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ''
+  per_page: 10
+  order_by: -date
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Metadata elements
+## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+meta_generator: true
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+## updated_option supports 'mtime', 'date', 'empty'
+updated_option: 'mtime'
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 20
+pagination_dir: page
+
+# Include / Exclude file(s)
+## include:/exclude: options only apply to the 'source/' folder
+include:
+exclude:
+ignore:
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+# theme: landscape
+theme: cactus
+
+theme_config:
+  # available schemes: dark, light, white and classic
+  # colorscheme: dark
+  tags_overview: true
+  nav:
+    home: /
+    Blog: /archives/
+    projects: http://github.com/princerajpoot20
+  social_links:
+    -
+      icon: github
+      link: https://github.com/princerajpoot20
+    -
+      icon: twitter
+      link: https://twitter.com/PrinceR20219143
+    -
+      icon: linkedin
+      link: https://www.linkedin.com/in/princerajpoot/
+    -
+      icon: gitlab
+      link: https://gitlab.com/prince.rajpoot.20
+    -
+      icon: mail
+      link: mailto:prince.rajpoot.20@gmail.com
+  gravatar:
+    email: prince.rajpoot.20@gmail.com
+  logo:
+    enabled: true
+    width: 50
+    height: 50
+    gravatar: true
+  favicon:
+    desktop:
+      gravatar: true
+    android:
+      gravatar: true
+    apple:
+      gravatar: true
+  google_analytics:
+    enabled: true
+    id: G-J97NRXQQQK
+
+
+# Deployment
+## Docs: https://hexo.io/docs/one-command-deployment
+deploy:
+  type: ''
